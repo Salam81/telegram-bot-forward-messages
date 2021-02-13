@@ -34,4 +34,13 @@ GROUP = environ['GROUP']
 
 # The recipient of the message. @username or me 
 RECIPIENT = environ['RECIPIENT']
+
+# [OPTIONAL] Embed your login credentials.
+SESSION = environ['SESSION']
+```
+
+# Get Login Session String
+```python
+with TelegramClient(StringSession(), API_ID, API_HASH) as client:
+    print(client.session.save())
 ```

@@ -1,12 +1,17 @@
 from telethon import TelegramClient, events, sync
+from telethon.sessions import StringSession
 from os import environ
 
 API_ID = environ['API_ID']
 API_HASH = environ['API_HASH']
 GROUP = environ['GROUP']
 RECIPIENT = environ['RECIPIENT']
+SESSION = environ['SESSION']
 
-client = TelegramClient('bot', API_ID, API_HASH)
+if SESSION:
+    client = TelegramClient(StringSession(SESSION), API_ID, API_HASH)
+else:
+    client = TelegramClient('bot', API_ID, API_HASH)
 
 @client.on(events.NewMessage(chats=GROUP))
 async def newMessageListener(event):
