@@ -1,11 +1,10 @@
 from telethon import TelegramClient, events, sync
 from os import environ
 
-# API Keys https://my.telegram.org/
 API_ID = environ['API_ID']
 API_HASH = environ['API_HASH']
 GROUP = environ['GROUP']
-RECIPIENT = environ['RECIPIENT'] # @username or me
+RECIPIENT = environ['RECIPIENT']
 
 client = TelegramClient('bot', API_ID, API_HASH)
 
